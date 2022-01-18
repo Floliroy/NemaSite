@@ -76,6 +76,10 @@ footer{
 }
 
 /** Main */
+.container-links{
+    font-size: xx-large;
+}
+
 a, a:hover{
     color: var(--primary-color);
     font-weight: bold;
