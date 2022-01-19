@@ -2,6 +2,13 @@ require('dotenv').config()
 /**
  * My libraries
  */
+const YouTubeNotifier = require('youtube-notification')
+const notifier = new YouTubeNotifier({
+   hubCallback: "http://194.5.159.2:3614/",
+   port: 3614,
+   secret: process.env.SECRET,
+   path: "/"
+})
 const YouTube = require('youtube-node')
 const youtube = new YouTube()
 youtube.setKey(process.env.YOUTUBE_TOKEN)
@@ -12,9 +19,15 @@ const app = express()
 /**
  * Get youtube video IDs
  */
+notifier.setup()
+notifier.on("notified", function(){
+    console.log("New Video")
+})
+notifier.subscribe(process.env.YOUTUBE_CHANNEL_ID)
+
 let videoIds = new Array()
 function updateVideoIds(){
-    youtube.getPlayListsItemsById("UUHgSUqAOaNpwxVZxd3ZlAZA", 4, function(err, data){
+    youtube.getPlayListsItemsById(process.env.YOUTUBE_PLAYLIST_ID, 4, function(err, data){
         if(data.items[0].contentDetails.videoId != videoIds[0]){
             console.log("Update Youtube videos displayed !")
         }
