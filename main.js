@@ -21,7 +21,7 @@ const app = express()
  */
 notifier.setup()
 notifier.on("notified", function(){
-    console.log("New Video")
+    updateVideoIds()
 })
 notifier.subscribe(process.env.YOUTUBE_CHANNEL_ID)
 
@@ -36,8 +36,6 @@ function updateVideoIds(){
             videoIds.push(item.contentDetails.videoId)
         }
     })
-    //re call each 30 minutes
-    setTimeout(updateVideoIds, 30 * 60 * 1000)
 }
 updateVideoIds()
 

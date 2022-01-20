@@ -121,17 +121,17 @@ a, a:hover{
     }
     
     .twitch .twitch-video {
-        width: 75%;
-        height: 100%;
-        padding-top: 42.1875%;
+        width: 77.3%;
+        height: max-content;
+        padding-top: 43.49%;
     }
   
     .twitch .twitch-chat {
-        width: 25%;
+        width: 22.7%;
         height: auto;
         position: absolute;
         top: 0;
-        right: 6px;
+        right: 7px;
         bottom: 0;
     }
 }
