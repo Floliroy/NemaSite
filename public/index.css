@@ -39,10 +39,22 @@ nav{
 nav ul li a.nav-link, nav ul li a.nav-link:after,nav ul li a.nav-link:before {
     color: var(--white-color) !important;
     transition: all .5s;
-    margin: -10px 5px -10px 0;
+    margin: -12px 5px -12px 0;
 }
 nav ul li a.nav-link:hover {
     color: var(--primary-color) !important;
+}
+nav ul li a.nav-link.twitter:hover {
+    color: rgb(29, 155, 240) !important;
+}
+nav ul li a.nav-link.discord:hover {
+    color: rgb(86, 98, 246) !important;
+}
+nav ul li a.nav-link.youtube:hover {
+    color: rgb(253, 0, 0) !important;
+}
+nav ul li a.nav-link.twitch:hover {
+    color: rgb(146, 70, 255) !important;
 }
 a.dropdown-toggle:after {
     position: relative;
