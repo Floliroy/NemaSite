@@ -39,10 +39,18 @@ nav{
 nav ul li a.nav-link, nav ul li a.nav-link:after,nav ul li a.nav-link:before {
     color: var(--white-color) !important;
     transition: all .5s;
-    margin: -12px 5px -12px 0;
+    margin: -5px 5px -5px 0 !important;
 }
-nav ul li a.nav-link:hover {
+.navbar-brand{
+    margin: -5px 5px -5px 0 !important;
+}
+nav ul li a.nav-link:hover, a.dropdown-toggle:hover:after {
     color: var(--primary-color) !important;
+}
+
+.container-links{
+    margin-top: -3px;
+    font-size: xx-large;
 }
 nav ul li a.nav-link.twitter:hover {
     color: rgb(29, 155, 240) !important;
@@ -56,14 +64,14 @@ nav ul li a.nav-link.youtube:hover {
 nav ul li a.nav-link.twitch:hover {
     color: rgb(146, 70, 255) !important;
 }
+
+a.dropdown-toggle{
+    position: relative;
+    top: 8px;
+}
 a.dropdown-toggle:after {
     position: relative;
-    top: -5px;
-}
-.dropdown-menu-right{
-    position: relative;
-    right: 50px !important;
-    width: fit-content;
+    top: -5px !important;
 }
 .dropdown-menu-dark{
     background-color: #080808 !important;
@@ -75,6 +83,23 @@ a.dropdown-toggle:after {
     background-color: var(--white-color) !important;
     color: #080808 !important;
     font-weight: bold;
+}
+
+@media screen and (min-width: 992px) {
+    nav ul li a.nav-link, nav ul li a.nav-link:after,nav ul li a.nav-link:before {
+        margin: -12px 5px -12px 0 !important;
+    }
+    .navbar-brand{
+        margin: -12px 5px -12px 0 !important;
+    }
+    .dropdown-menu-dark{
+        margin-left: 100px;
+        position: absolute;
+    }
+    a.dropdown-toggle:after {
+        position: relative;
+        top: -10px !important;
+    }
 }
 
 /** Footer */
@@ -95,9 +120,13 @@ h1{
     text-shadow: 3px 3px 3px var(--primary-color);
     font-size: 3rem;
 }
-
-.container-links{
-    font-size: xx-large;
+h2{
+    text-transform: uppercase;
+    font-weight: bolder;
+    text-shadow: 3px 3px 3px var(--primary-color);
+    font-size: 2.5rem;
+    padding-left: 10px;
+    border-left: 5px solid var(--primary-color);
 }
 
 a, a:hover{

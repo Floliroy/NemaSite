@@ -26,14 +26,24 @@ notifier.on("notified", function(){
 notifier.subscribe(process.env.YOUTUBE_CHANNEL_ID)
 
 let videoIds = new Array()
+let playlistIds = new Array()
 function updateVideoIds(){
     youtube.getPlayListsItemsById(process.env.YOUTUBE_PLAYLIST_ID, 4, function(err, data){
         if(data.items[0].contentDetails.videoId != videoIds[0]){
             console.log("Update Youtube videos displayed !")
-        }
+        }else return
         videoIds = new Array()
         for(const item of data.items){
             videoIds.push(item.contentDetails.videoId)
+        }
+    })
+    youtube.getPlayListsItemsById("PLXuWGuL4Fzc5Gjmp_FRjg75VRhFfJ5-Ub", 50, function(err, data){
+        if(data.items[0].contentDetails.videoId != playlistIds[0]){
+            console.log("Update Youtube playlist : Duos Improbables !")
+        }else return
+        playlistIds = new Array()
+        for(const item of data.items){
+            playlistIds.push(item.contentDetails.videoId)
         }
     })
 }
@@ -49,8 +59,18 @@ app.use(express.json())
 
 app.get("/", async function(req, res){
     const ip = req.headers['x-forwarded-for'] || req.socket.remoteAddress
-    console.log(`${ip} asked for index !`);
+    console.log(`${ip} asked for index !`)
     res.render("partials/layout", {body: "index", videoIds: videoIds, req: req})
+})
+app.get("/duos", async function(req, res){
+    const ip = req.headers['x-forwarded-for'] || req.socket.remoteAddress
+    console.log(`${ip} asked for duos !`)
+    res.render("partials/layout", {body: "duos", playlistIds: playlistIds, req: req})
+})
+app.get("/zlan", async function(req, res){
+    const ip = req.headers['x-forwarded-for'] || req.socket.remoteAddress
+    console.log(`${ip} asked for zlan !`)
+    res.render("partials/layout", {body: "zlan", req: req})
 })
 
 /**

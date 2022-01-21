@@ -3,6 +3,11 @@
 <%
 const description = "Site vitrine NémaïdèsTFT !"
 let title = "Némaïdès"
+if(body == "duos"){
+    title += " - Duos Improbables"
+}else if(body == "zlan"){
+    title += " - ZLAN 2021"
+}
 const url = "https://" + req.get("host") + req.originalUrl
 %>
 <head>

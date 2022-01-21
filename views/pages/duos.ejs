@@ -1,0 +1,26 @@
+<h1 class="pb-2">Duos Improbables</h1>
+
+<h2 class="mt-5">Concept</h2>
+Un champion est tiré au sort via une roulette. Le chat Twitch choisir ensuite un autre champion (bien sûr, un qui ne va pas du tout avec le premier...).<br>
+Je suis alors obligé de créer une compo ayant ces deux champions en carry !
+
+<h2 class="mt-5">Règles</h2>
+<ul>
+    <li>Les deux champions du Duo doivent être stuffés en priorité</li>
+    <li>Les synergies des deux champions doivent être jouées en priorité</li>
+    <li>Les deux champions doivent être systématiquement achetés pour les passer level 3</li>
+    <li>Les deux champions doivent toujours être sur le board s'ils sont présents</li>
+</ul>
+
+<h2 class="mt-5">Playlist</h2>
+<div class="row">
+    <% for(const id of playlistIds){ %>
+        <div class="col-12 col-sm-6 col-lg-4">
+            <div class="ratio ratio-16x9 mb-3">
+                <iframe width="100%" height="100%" src="https://www.youtube.com/embed/<%=id%>" title="YouTube video player" frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+                </iframe>
+            </div>
+        </div>
+    <% } %>
+</div>
