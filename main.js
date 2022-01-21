@@ -38,7 +38,7 @@ function updateVideoIds(){
         }
     })
     youtube.getPlayListsItemsById("PLXuWGuL4Fzc5Gjmp_FRjg75VRhFfJ5-Ub", 50, function(err, data){
-        if(data.items[0].contentDetails.videoId != playlistIds[0]){
+        if(data.items[0].contentDetails.videoId != playlistIds[playlistIds.length - 1]){
             console.log("Update Youtube playlist : Duos Improbables !")
         }else return
         playlistIds = new Array()
