@@ -45,6 +45,7 @@ function updateVideoIds(){
         for(const item of data.items){
             playlistIds.push(item.contentDetails.videoId)
         }
+        playlistIds = playlistIds.reverse()
     })
 }
 updateVideoIds()
