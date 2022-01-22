@@ -10,13 +10,13 @@ html{
     height: 100%;
     margin: 0;
     scroll-behavior: smooth;
-    min-width: 300px;
     overflow-x: hidden;
 }
 body{
     background-color: var(--background-color);
 
     font-family: 'Ubuntu', sans-serif;
+    text-align: justify;
     color: var(--white-color);
     display: flex;
     flex-direction: column;
@@ -46,6 +46,11 @@ nav ul li a.nav-link, nav ul li a.nav-link:after,nav ul li a.nav-link:before {
 }
 nav ul li a.nav-link:hover, a.dropdown-toggle:hover:after {
     color: var(--primary-color) !important;
+}
+@media screen and (max-width: 991px) {
+    a.nav-link img{
+        height: 35px !important;
+    }
 }
 
 .container-links{
@@ -121,6 +126,7 @@ h1{
     font-size: 3rem;
 }
 h2{
+    text-align: left;
     text-transform: uppercase;
     font-weight: bolder;
     text-shadow: 3px 3px 3px var(--primary-color);
@@ -133,6 +139,10 @@ a, a:hover{
     color: var(--primary-color);
     font-weight: bold;
     text-decoration: none;
+}
+
+.zlan-logo{
+    max-height: 85px;
 }
 
 /** Twitch */
