@@ -27,7 +27,7 @@ notifier.subscribe(process.env.YOUTUBE_CHANNEL_ID)
 
 let videoIds = new Array()
 let playlistIds = new Array()
-function updateVideoIds(){
+function updateVideoIds(now){
     youtube.getPlayListsItemsById(process.env.YOUTUBE_PLAYLIST_ID, 4, function(err, data){
         if(data.items[0].contentDetails.videoId != videoIds[0]){
             console.log("Update Youtube videos displayed !")
@@ -48,9 +48,9 @@ function updateVideoIds(){
             }
             playlistIds = playlistIds.reverse()
         })
-    }, 5 * 60 * 1000)
+    }, (now ? 0 : 5) * 60 * 1000)
 }
-updateVideoIds()
+updateVideoIds(true)
 
 /**
  * Website Init
