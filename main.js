@@ -37,17 +37,18 @@ function updateVideoIds(){
             videoIds.push(item.contentDetails.videoId)
         }
     })
-    
-    youtube.getPlayListsItemsById("PLXuWGuL4Fzc5Gjmp_FRjg75VRhFfJ5-Ub", 50, function(err, data){
-        if(data.items[0].contentDetails.videoId != playlistIds[playlistIds.length - 1]){
-            console.log("Update Youtube playlist : Duos Improbables !")
-        }else return
-        playlistIds = new Array()
-        for(const item of data.items){
-            playlistIds.push(item.contentDetails.videoId)
-        }
-        playlistIds = playlistIds.reverse()
-    })
+    setTimeout(function(){
+        youtube.getPlayListsItemsById("PLXuWGuL4Fzc5Gjmp_FRjg75VRhFfJ5-Ub", 50, function(err, data){
+            if(data.items[0].contentDetails.videoId != playlistIds[playlistIds.length - 1]){
+                console.log("Update Youtube playlist : Duos Improbables !")
+            }else return
+            playlistIds = new Array()
+            for(const item of data.items){
+                playlistIds.push(item.contentDetails.videoId)
+            }
+            playlistIds = playlistIds.reverse()
+        })
+    }, 5 * 60 * 1000)
 }
 updateVideoIds()
 
