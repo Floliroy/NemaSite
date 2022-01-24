@@ -1,7 +1,3 @@
-document.addEventListener("turbolinks:load", function() { 
-    $('a.dropdown-toggle').on("click", function(e){
-        $(this).next("ul").toggle()
-        e.stopPropagation()
-        e.preventDefault()
-    })
+$(document).on('ready turbolinks:load', function() { 
+    $('[data-toggle="tooltip"]').tooltip()
 })
