@@ -27,7 +27,7 @@ notifier.subscribe(process.env.YOUTUBE_CHANNEL_ID)
 
 let videoIds = new Array()
 let playlistIds = new Array()
-function updateVideoIds(now){
+function updateVideoIds(){
     youtube.getPlayListsItemsById(process.env.YOUTUBE_PLAYLIST_ID, 4, function(err, data){
         if(data.items[0].contentDetails.videoId != videoIds[0]){
             console.log("Update Youtube videos displayed !")
@@ -37,20 +37,19 @@ function updateVideoIds(now){
             videoIds.push(item.contentDetails.videoId)
         }
     })
-    setTimeout(function(){
-        youtube.getPlayListsItemsById("PLXuWGuL4Fzc5Gjmp_FRjg75VRhFfJ5-Ub", 50, function(err, data){
-            if(data.items[0].contentDetails.videoId != playlistIds[playlistIds.length - 1]){
-                console.log("Update Youtube playlist : Duos Improbables !")
-            }else return
-            playlistIds = new Array()
-            for(const item of data.items){
-                playlistIds.push(item.contentDetails.videoId)
-            }
-            playlistIds = playlistIds.reverse()
-        })
-    }, (now ? 0 : 5) * 60 * 1000)
+    youtube.getPlayListsItemsById("PLXuWGuL4Fzc5Gjmp_FRjg75VRhFfJ5-Ub", 50, function(err, data){
+        if(data.items[0].contentDetails.videoId != playlistIds[playlistIds.length - 1]){
+            console.log("Update Youtube playlist : Duos Improbables !")
+        }else return
+        playlistIds = new Array()
+        for(const item of data.items){
+            playlistIds.push(item.contentDetails.videoId)
+        }
+        playlistIds = playlistIds.reverse()
+    })
+    setTimeout(updateVideoIds, 15 * 60 * 1000)
 }
-updateVideoIds(true)
+updateVideoIds()
 
 /**
  * Website Init
