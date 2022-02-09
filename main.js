@@ -74,6 +74,7 @@ app.get("/zlan", async function(req, res){
     console.log(`${ip} asked for zlan !`)
     res.render("partials/layout", {body: "zlan", req: req})
 })
+app.get("/discord", (req, res) => res.redirect("https://discord.gg/GgGRtYb"))
 
 /**
  * Lancement serveur web
